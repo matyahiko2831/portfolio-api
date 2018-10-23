@@ -42,6 +42,16 @@ func main() {
 		return c.JSON(http.StatusOK, members)
 	})
 
+	// test
+	e.GET("/test", func(c echo.Context) error {
+		// Member型のリスト
+		members := []Member{
+			{Id: 11, Name: "kondo"},
+		}
+
+		return c.JSON(http.StatusOK, members)
+	})
+
 	// Start server
 	// ポート番号は環境変数から取得
 	e.Logger.Fatal(e.Start(":" + os.Getenv("PORT")))
